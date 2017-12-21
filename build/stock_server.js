@@ -8,6 +8,9 @@ app.get('/', function (request, response) {
 app.get('/app/EGFR', function (request, response) {
     response.json(stocks);
 });
+app.get('/app/EGFR/:id', function (request, response) {
+    response.json(stocks.find(function (stock) { return stock.id == request.params.id; }));
+});
 var server = app.listen(9000, 'localhost', function () {
     console.log('服务器已启动，端口：9000');
 });

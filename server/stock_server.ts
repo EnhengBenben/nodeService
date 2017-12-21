@@ -9,6 +9,9 @@ app.get('/', (request, response) => {
 app.get('/app/EGFR', (request, response) => {
     response.json(stocks);
 });
+app.get('/app/EGFR/:id', (request, response) => {
+    response.json(stocks.find((stock) => stock.id == request.params.id));
+});
 
 const server = app.listen(9000, 'localhost', () =>{
     console.log('服务器已启动，端口：9000');
